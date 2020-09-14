@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: "o2aks-5544"
+  name: "antonmarkov-dbc-spa"
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: "o2aks-5544"
+      app: "antonmarkov-dbc-spa"
   template:
     metadata:
       labels:
-        app: "o2aks-5544"
+        app: "antonmarkov-dbc-spa"
     spec:
       containers:
-        - name: "o2aks-5544"
-          image: "o2bionics.azurecr.io/o2aks"
+        - name: "antonmarkov-dbc-spa"
+          image: "o2bionics.azurecr.io/antonmarkov-dbc-spa"
           ports:
           - containerPort: 80

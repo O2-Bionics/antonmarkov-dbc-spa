@@ -14,8 +14,8 @@ jobs:
     - name: Build and push image to ACR
       id: build-image
       run: |
-        docker build "$GITHUB_WORKSPACE/antonmarkov-dbc-spa" -f  "antonmarkov-dbc-spa/Dockerfile" -t o2bionics.azurecr.io/o2aks:${{ github.sha }}
-        docker push o2bionics.azurecr.io/o2aks:${{ github.sha }}
+        docker build "$GITHUB_WORKSPACE/antonmarkov-dbc-spa" -f  "antonmarkov-dbc-spa/Dockerfile" -t o2bionics.azurecr.io/antonmarkov-dbc-spa:${{ github.sha }}
+        docker push o2bionics.azurecr.io/antonmarkov-dbc-spa:${{ github.sha }}
     
     - uses: azure/k8s-set-context@v1
       with:
@@ -24,15 +24,15 @@ jobs:
     
     - name: Create namespace
       run: |
-        namespacePresent=`kubectl get namespace | grep o2aks3fb3 | wc -l`
+        namespacePresent=`kubectl get namespace | grep antonmarkovdbcspa | wc -l`
         if [ $namespacePresent -eq 0 ]
         then
-            echo `kubectl create namespace o2aks3fb3`
+            echo `kubectl create namespace antonmarkovdbcspa`
         fi
 
     - uses: azure/k8s-create-secret@v1
       with:
-        namespace: o2aks3fb3
+        namespace: antonmarkovdbcspa
         container-registry-url: o2bionics.azurecr.io
         container-registry-username: ${{ secrets.acr_o2bionics_username }}
         container-registry-password: ${{ secrets.acr_o2bionics_password }}
@@ -40,11 +40,11 @@ jobs:
        
     - uses: azure/k8s-deploy@v1
       with:
-        namespace: o2aks3fb3
+        namespace: antonmarkovdbcspa
         manifests: |
           manifests/deployment.yml
           manifests/service.yml
         images: |
-          o2bionics.azurecr.io/o2aks:${{ github.sha }}
+          o2bionics.azurecr.io/antonmarkov-dbc-spa:${{ github.sha }}
         imagepullsecrets: |
           o2aksdockerauth
