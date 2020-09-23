@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="text-left mt-3">
+    <br>
+    <h4>Сертифицированные ПФР специалисты</h4>
+    <div>Страниц page {{pagination.currentPage}} из {{pagination.totalPages}} всего {{pagination.totalItems}}
+      сертификатов</div><br>
+    <p style="font-size: 12px;">O2 Certificates. Модуль разработан на базе платформы для бизнеса "O2 Business"</p>
+  </div>
+  <table id="table-cert table-nonfluid" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>Номер сертификата</th>
+        <th>Дата сертификации</th>
+        <th>Фото специалиста</th>
+
+        <th>ФИО</th>
+        <th>Образование</th>
+        <th>Страна/Регион</th>
+        <th>Контакты</th>
+        <th>Ссылка на скачивание сертификата</th>
+      </tr>
+    </thead>
+    <tbody id="data-cert">
+      <tr *ngFor="let certificate of certificates">
+        <td>{{certificate.shortNumber}}</td>
+        <td>{{certificate.serial}}{{certificate.number}}</td>
+        <td>{{certificate.serial}}</td>
+        <td style="width: 20px;"><img style="max-width:auto;
+            height:auto;" class="card-img-top" src="{{certificate.photoUrl}}" alt="img"></td>
+        <td>{{certificate.firstname}} {{certificate.lastname}} {{certificate.middlename}}</td>
+        <td>{{certificate.education}}</td>
+        <td>{{certificate.allLocations}}</td>
+        <td ng>
+          <span [innerHTML]="certificate.allContacts"></span>
+
+        </td>
+        <td><a href="https://api.o2bus.com/api/v1.0/apps/certificates/generate/{{certificate.id}}">скачать</a> </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="d-flex justify-content-center">
+    <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+      [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+      nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+    </pagination>
+  </div>
+  <br>
+</div>

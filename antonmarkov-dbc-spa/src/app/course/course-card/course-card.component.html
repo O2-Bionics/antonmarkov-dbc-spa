@@ -1,0 +1,15 @@
+<div class="card mb-4">
+  <div class="card-img-wrapper">
+    <div class="card-img-top">
+      <!-- <app-amp-player [width]="200" [height]="200" [course]="course"></app-amp-player> -->
+      <img src="https://d1idjbb9jmy0ec.cloudfront.net/images/video-marketing-10-tips-for-shooting-a-promotional-video.jpg" alt="">
+    </div>
+  </div>
+  <div class="card-body p-1">
+    <h6 class="card-title">{{course.fullname}}</h6>
+    <p>{{course.description}}</p>
+    <button class="btn btn-primary" [routerLink]="['/courses/',course.id]">
+      <i class="fa fa-user"></i>
+    </button>
+  </div>
+</div>

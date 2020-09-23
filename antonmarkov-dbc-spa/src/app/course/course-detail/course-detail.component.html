@@ -1,0 +1,57 @@
+<div class="container">
+    <br>
+    <div class="row">
+        <h1>{{course.fullname}}</h1>
+    </div>
+    <div class="row">
+        <ul>
+            <li class="list-inline-item">
+                <button class="btn btn-primary">Start Course</button>
+            </li>
+            <li class="list-inline-item">
+                <button class="btn btn-primary">Add Bookmark</button>
+            </li>
+            <li class="list-inline-item">
+                <button class="btn btn-primary">Add to Channel</button>
+            </li>
+            <li class="list-inline-item">
+                <button class="btn btn-primary">Download Course</button>
+            </li>
+        </ul>
+
+    </div>
+    <br>
+    <div class="row">
+        <app-amp-player [course]="course"></app-amp-player>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="tab-panel">
+                <tabset>
+                    <tab heading="Table of contents">
+
+                            <p>{{course.id}}</p>
+                            <p>{{course.name}}</p>
+                            <p>{{course.fullname}}</p>
+                
+                            <p>{{course.full_description}}</p>
+                            <p>{{course.date_added}}</p>
+                            <p>{{course.date_modified}}</p>
+                            <p>{{course.video_url}}</p>
+
+                    </tab>
+                    <tab heading="Description">
+                        <div>
+                            <h5>{{course.description}}</h5>
+                        </div>
+
+                    </tab>
+                    <tab heading="Exercise files"></tab>
+                    <tab heading="Discussion"></tab>
+                    <tab heading="Recommended"></tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+</div>

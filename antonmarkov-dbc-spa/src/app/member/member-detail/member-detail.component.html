@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{user?.photoUrl}}" alt="{{user?.username}}">
+        <div class="card-body">
+          <div>
+            <strong>Location:</strong>
+            <p>{{user?.city}}, {{user?.country}}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex">
+            <button class="btn btn-primary w-100">Like</button>
+            <button class="btn btn-success w-100">Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset>
+         <tab heading="About"></tab>
+         <tab heading="About2"></tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>
