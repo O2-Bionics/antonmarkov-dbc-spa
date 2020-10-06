@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: selfsigned-cert
-  namespace: antonmarkovdbcspa
+  namespace: o2platform
 spec:
   commonName: dbc.antonmarkov.com 
   secretName: selfsigned-cert-tls

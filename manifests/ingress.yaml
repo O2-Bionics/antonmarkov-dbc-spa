@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: antonmarkov-dbc-spa-ingress
-  namespace: antonmarkovdbcspa
+  namespace: o2platform
   annotations:
     kubernetes.io/ingress.class: "nginx"
     ingress.kubernetes.io/ssl-redirect: "true"
