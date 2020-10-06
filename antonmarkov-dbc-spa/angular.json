@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "db-pfr-spa": {
+    "O2-Business-Presentsight-SPA": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,20 +13,23 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/db-pfr-spa",
+            "outputPath": "dist/O2-Business-Presentsight-SPA",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/web.config"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/alertifyjs/build/alertify.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -45,6 +44,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -53,11 +53,6 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
                 }
               ]
             }
@@ -66,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "db-pfr-spa:build"
+            "browserTarget": "O2-Business-Presentsight-SPA:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "db-pfr-spa:build:production"
+              "browserTarget": "O2-Business-Presentsight-SPA:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "db-pfr-spa:build"
+            "browserTarget": "O2-Business-Presentsight-SPA:build"
           }
         },
         "test": {
@@ -92,7 +87,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -114,19 +109,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "db-pfr-spa:serve"
+            "devServerTarget": "O2-Business-Presentsight-SPA:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "db-pfr-spa:serve:production"
+              "devServerTarget": "O2-Business-Presentsight-SPA:serve:production"
             }
           }
         }
       }
-    }
-  },
-  "defaultProject": "db-pfr-spa",
-  "cli": {
-    "analytics": "52b754a9-c902-4f91-8d6c-5a261a2e251b"
-  }
+    }},
+  "defaultProject": "O2-Business-Presentsight-SPA"
 }

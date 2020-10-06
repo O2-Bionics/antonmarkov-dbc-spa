@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('db-pfr-spa app is running!');
+    expect(page.getTitleText()).toEqual('Welcome to O2-Business-Presentsight-SPA!');
   });
 
   afterEach(async () => {
