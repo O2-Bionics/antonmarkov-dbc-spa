@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CertificatesService {
-  baseUrl = 'http://api-certificate.o2bus.com/api/v1.0/apps/';
+  baseUrl = 'https://certificate-api.o2bus.com/api/v1.1/apps/';
 
   constructor(private http: HttpClient) { }
 
